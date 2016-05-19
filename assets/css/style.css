@@ -1,0 +1,59 @@
+header {
+	border: 1px solid red;
+	text-align: center;
+	width: 800px;
+	margin: 0 auto;
+	padding: 100px 0;
+
+}
+
+.container {
+	height: 800px;
+	width: 800px;
+	border: 1px solid blue;
+	margin: 0 auto;
+}
+
+.main-image {
+	width: 300px;
+	height: 300px;
+	border: 1px solid brown;
+	float: left;
+	position: relative;
+}
+
+.sidebar {
+	float: left;
+	position: relative;
+}
+
+.quotes {
+	width: 300px;
+	height: 150px;
+	border: 1px solid gray;
+}	
+
+.start {
+	width: 300px;
+	height: 150px;
+	border: 1px solid green;
+}
+
+.guesses {
+	width: 300px;
+	height: 150px;
+	border: 1px solid orange;
+}
+
+.stats {
+	width: 300px;
+	height: 20px;
+	border: 1px solid red;
+}
+
+footer {
+	margin: 0 auto;
+	border: 1px solid red;
+	width: 800px;
+	padding: 100px 0;
+}
