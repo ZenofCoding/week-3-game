@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Psychic Game</title>
+</head>
+
+<body>
+
+		<h1>
+			Psychic Game
+		</h1>
+
+					<div id="game">
+						Guess what letter I'm thinking of.
+
+						<p>Press any key</p>
+
+						
+					</div>
+					<div class="word">
+
+					</div>
+
+		<script type="text/javascript">
+
+window.onload = function() {
+			
+var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var wins = 0;
+var losses = 0;
+var ties = 0;
+var userGuess;
+
+// Initialize
+var words = ['YELLOW','RED','BLUE'];
+// Random number 0-2
+randomNum = Math.floor((Math.random()*2)+1);
+var word = words[randomNum].split('');
+
+var positions = [];
+
+// Make underscores
+for (var i=0; i<word.length; i++) {
+	positions.push("_");
+}
+
+console.log(word)
+console.log(positions)
+
+// Show underscores
+document.querySelector(".word").innerHTML = positions.join(" ");
+
+document.onkeyup = function(event) {
+	console.log (String.fromCharCode (event.keyCode))
+    userGuess = String.fromCharCode (event.keyCode).toUpperCase();
+    // Replace underscore with letter if correct
+	for (var i=0; i<word.length; i++) {
+		if (word [i] == userGuess) {
+			positions[i] = word[i]
+		}
+	}
+	// Redisplay
+	document.querySelector(".word").innerHTML = positions.join(" ");
+}
+
+    /*var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+    if ((userGuess == 'a') || (userGuess == 'b') || (userGuess == 'c') || (userGuess == 'd') || (userGuess == 'e') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') || (userGuess == 'i') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') || (userGuess == 'm') || (userGuess == 'n') || (userGuess == 'o') || (userGuess == 'p') || (userGuess == 'q') || (userGuess == 'r') || (userGuess == 's') || (userGuess == 't') || (userGuess == 'u') || (userGuess == 'v') || (userGuess == 'w') || (userGuess == 'x') || (userGuess == 'y') || (userGuess == 'z')){
+
+        if ((userGuess == 'a') && (computerGuess == 'a')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+        }
+        if ((userGuess == 'b') && (computerGuess == 'b')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+        }
+
+         if ((userGuess == 'c') && (computerGuess == 'c')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'd') && (computerGuess == 'd')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'e') && (computerGuess == 'e')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'f') && (computerGuess == 'f')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+            if ((userGuess == 'a') && (computerGuess == 'g')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+
+        if ((userGuess == 'b') && (computerGuess == 'h')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+
+                if ((userGuess == 'c') && (computerGuess == 'i')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'd') && (computerGuess == 'j')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'e') && (computerGuess == 'k')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'f') && (computerGuess == 'l')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+                if ((userGuess == 'a') && (computerGuess == 'm')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+        if ((userGuess == 'b') && (computerGuess == 'n')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'c') && (computerGuess == 'o')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'd') && (computerGuess == 'p')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'e') && (computerGuess == 'q')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'f') && (computerGuess == 'r')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'a') && (computerGuess == 's')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+        if ((userGuess == 'b') && (computerGuess == 't')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+
+                if ((userGuess == 'c') && (computerGuess == 'u')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'd') && (computerGuess == 'v')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'e') && (computerGuess == 'w')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+                if ((userGuess == 'f') && (computerGuess == 'x')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+                if ((userGuess == 'f') && (computerGuess == 'y')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+
+               if ((userGuess == 'f') && (computerGuess == 'z')){
+            wins++;
+
+           alert("you win!");
+        }
+
+           else {
+           	alert("try again!");
+           }
+*/
+
+
+
+
+        var html = "<p>Guess What Letter I'm thinking of!</p>" +
+        "<p>wins: " + 
+        wins + 
+        "</p>" +
+        "<p>losses: " + 
+        losses + 
+        "</p>" +
+        "<p>ties: " + 
+        ties + 
+        "</p>";
+
+        document.querySelector('#game').innerHTML = html;
+
+    }
+
+		</script>
+
+
+
+		<div class="wins">
+		</div>
+
+		<div class="losses">
+		</div>
+
+		
+
+
+</body>
+
+</html>
